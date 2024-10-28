@@ -2,6 +2,36 @@
 <head>
     <title>Barış Alper Yılmaz</title> 
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #slider {
+            position: relative; 
+            width: 100%; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            overflow: hidden; 
+        }
+
+        #slider img {
+            width: 100%; 
+            height: auto;
+            display: none; 
+        }
+
+        #slider img.active {
+            display: block; 
+        }
+    </style>
+    <script>
+        const numOfSlides = 4;
+        let activeSlide = 0;
+
+        setInterval(function() {
+            const slides = document.querySelectorAll("#slider img");
+            slides[activeSlide].classList.remove('active');
+            activeSlide = (activeSlide + 1) % numOfSlides; 
+            slides[activeSlide].classList.add('active');
+        }, 5000);
+    </script>
 </head> 
 <body>
     <div>
@@ -10,9 +40,13 @@
         <a href="takımlar.html">Oynadığı Takımlar</a>
     </div>
     <h1>Barış Alper Yılmaz</h1>
+    <div id="slider">
+        <img src="slide/slide-1.jpg" class="active" alt="">
+        <img src="slide/slide-2.jpg" alt="">
+        <img src="slide/slide-3.jpg" alt="">
+        <img src="slide/slide-4.jpg" alt="">
+    </div>
     <video src="baris.mp4" controls></video>
-    <img src="https://foto.haberler.com/haber/2024/07/08/baris-alper-yilmaz-kimdir-baris-alper-yilmaz-kac-17498735_2663_amp.jpg" alt="Barış Alper Yılmaz" width="500" height="350">
-    
     <h2>Doğum Bilgileri</h2>
     <p>Doğum Tarihi: 23 Mayıs 2000</p>
     <p>Doğum Yeri: Türkiye,Rize</p>
@@ -24,19 +58,16 @@
         <li>Defansif çalışmalara katkı sağlar</li>
         <li>Farklı mevkilerde oynama yeteneği</li>
     </ul>
-
-    <!-- Footer -->
     <footer>
         <div class="footer-social">
-            <a href="https://twitter.com/barisalper" target="_blank">
+            <a href="https://x.com/Barisalperyilmz" target="_blank">
                 <img src="https://cdn4.iconfinder.com/data/icons/social-media-black-white-2/1227/X-64.png" alt="Twitter" width="30">
             </a>
-            <a href="https://www.instagram.com/barisalper/" target="_blank">
+            <a href="https://www.instagram.com/barisalperyilmaz/" target="_blank">
                 <img src="https://cdn4.iconfinder.com/data/icons/picons-social/57/38-instagram-2-64.png" alt="Instagram" width="30">
             </a>
         </div>
         <p>&copy; 2024 Barış Alper Yılmaz. Tüm hakları saklıdır.</p>
     </footer>
 </body>
-</html>
-
+</html> 
