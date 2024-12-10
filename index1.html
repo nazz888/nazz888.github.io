@@ -1,0 +1,19 @@
+<html>
+<head> 
+    <title>Renk Değiştiren Arka Plan</title>
+</head>
+<body>
+    <button id="renk-degistir">Renk Değiştir</button>
+    <script>
+        document.getElementById("renk-degistir").addEventListener('click', () => {
+            const sayi1 = Math.floor(Math.random() * 256);
+            const sayi4 = Math.floor(Math.random() * 256);
+            const sayi3 = Math.floor(Math.random() * 256); 
+            const renk = "rgb(" + sayi1 + "," + sayi4 + "," + sayi3 + ")";
+            document.body.style.backgroundColor = renk;
+        });
+    </script>
+</body>
+</html>
+
+

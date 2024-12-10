@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hayran Notu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hayran Notu Gönder</h1>
+    <form action="/gonder" method="post">
+        <label for="isim">Adınız:</label><br>
+        <input type="text" id="isim" name="isim" required><br><br>
+        <label for="mesaj">Notunuz:</label><br>
+        <textarea id="mesaj" name="mesaj" rows="5" required></textarea><br><br>
+        <button type="submit">Gönder</button>
+    </form>
+
+    <h2>Gönderilen Notlar</h2>
+    <ul>
+        {% for not in notlar %}
+        <li><strong>{{ not.isim }}</strong>: {{ not.mesaj }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

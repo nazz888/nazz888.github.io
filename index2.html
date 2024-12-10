@@ -1,0 +1,36 @@
+<html>
+  <head>
+        <tittle> Grid Layout</tittle> 
+        <style>
+            body{
+                display: grid;
+                grid-template:
+                     "Hdr Hdr"
+                     "Man Asd"
+                     "Ftr Asd" ;
+                     grid-template-columns: auto 250px;
+                     grid-template-rows: 1000px ;
+            }
+            header{
+                grid-area:Hdr;
+                background: red;
+            }
+            main{
+                grid-area:Man;
+                background: blue;
+            }
+            aside{
+                grid-area:Asd;
+                background: green;
+            }
+            footer{
+                background: pink;
+            }
+        </style>
+  </head>
+  <body>
+    <header> Header</header>
+    <main>Main alan</main>
+    <aside> Linkler</aside>
+  </body>
+</html>
