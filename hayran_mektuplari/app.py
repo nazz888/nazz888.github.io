@@ -5,7 +5,7 @@ app = Flask(__name__)
 # Ana sayfa
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index3.html')
 
 # Hayran mektupları formu
 @app.route('/hayran_mektuplari', methods=['GET', 'POST'])
