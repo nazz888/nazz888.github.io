@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #f9f9f9;
+            color: #333;
             margin: 0;
             padding: 0;
             display: flex;
@@ -15,76 +16,57 @@
             align-items: center;
             height: 100vh;
         }
-
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
         form {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 400px;
+            width: 100%;
         }
-
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #444;
+        }
         label {
+            font-weight: bold;
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
         }
-
-        input, textarea {
+        input, textarea, button {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 14px;
         }
-
         button {
-            width: 100%;
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px;
+            background-color: #007bff;
+            color: white;
             border: none;
-            border-radius: 4px;
-            font-size: 16px;
             cursor: pointer;
         }
-
         button:hover {
             background-color: #0056b3;
-        }
-
-        @media (max-width: 600px) {
-            form {
-                padding: 15px;
-            }
-
-            input, textarea, button {
-                font-size: 14px;
-            }
         }
     </style>
 </head>
 <body>
-    <h1>Hayran Mektupları Gönder</h1>
     <form action="{{ url_for('hayran_mektuplari') }}" method="POST">
+        <h1>Hayran Olarak Mektup Gönder</h1>
         <label for="name">Adınız:</label>
-        <input type="text" id="name" name="name" required><br>
+        <input type="text" id="name" name="name" required>
         
         <label for="email">E-posta Adresiniz:</label>
-        <input type="email" id="email" name="email" required><br>
+        <input type="email" id="email" name="email" required>
         
-        <label for="message">Mektubunuz:</label><br>
-        <textarea id="message" name="message" rows="5" required></textarea><br>
+        <label for="message">Mektubunuz:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
         
         <button type="submit">Gönder</button>
     </form>
 </body>
 </html>
+

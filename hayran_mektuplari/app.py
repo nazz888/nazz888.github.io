@@ -2,30 +2,27 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# Ana sayfa
 @app.route('/')
-def home():
-    return render_template('index3.html')
-
-# Hayran mektupları formu
-@app.route('/hayran_mektuplari', methods=['GET', 'POST'])
-def hayran_mektuplari():
-    if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        message = request.form['message']
-        
-        # Mektubu bir dosyaya kaydet
-        with open('mektuplar.txt', 'a', encoding='utf-8') as file:
-            file.write(f"Ad: {name}\nE-posta: {email}\nMesaj: {message}\n{'-'*40}\n")
-        
-        return redirect(url_for('success'))
+def index():
     return render_template('hayran_mektuplari.html')
 
-# Başarı sayfası
-@app.route('/success')
-def success():
-    return render_template('success.html')
+@app.route('/hayran_mektuplari', methods=['POST'])
+def hayran_mektuplari():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    message = request.form.get('message')
 
+    if not name or not email or not message:
+        return "Tüm alanlar doldurulmalıdır!", 400
+
+    print(f"Ad: {name}, E-posta: {email}, Mesaj: {message}")
+    return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+@app.route('/tesekkur')
+def tesekkur():
+    return "Mektubunuz için teşekkür ederiz!"
 if __name__ == '__main__':
     app.run(debug=True)
